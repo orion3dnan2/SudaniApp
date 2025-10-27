@@ -102,12 +102,26 @@ bayt-al-sudani/
 
 ---
 
+## 🔐 Test Accounts
+
+**Ready to test?** Use these demo accounts to try the app without Firebase setup:
+
+| Role | Email | Password |
+|------|-------|----------|
+| 👑 **Admin** | `admin@baytalSudani.com` | `Admin@123` |
+| 🏪 **Merchant** | `merchant@baytalSudani.com` | `Merchant@123` |
+| 👤 **User** | `user@baytalSudani.com` | `User@123` |
+
+> **Note:** These accounts work in demo mode without Firebase configuration. Perfect for testing!
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 - **Node.js** 18+ and npm
 - **Expo CLI** (installed automatically)
-- **Firebase Account** (for backend)
+- **Firebase Account** (for backend - optional for testing)
 - **Google Maps API Key** (optional, for maps)
 
 ### Installation

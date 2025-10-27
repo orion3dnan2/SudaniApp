@@ -125,6 +125,28 @@ const LoginScreen = ({ navigation }: any) => {
       fontWeight: 'bold',
       marginLeft: 4,
     },
+    demoBox: {
+      backgroundColor: colors.primary + '20',
+      borderRadius: BorderRadius.md,
+      padding: Spacing.md,
+      marginBottom: Spacing.lg,
+      borderWidth: 1,
+      borderColor: colors.primary + '40',
+    },
+    demoTitle: {
+      fontSize: 14,
+      fontWeight: 'bold',
+      color: colors.primary,
+      marginBottom: Spacing.sm,
+      textAlign: 'center',
+    },
+    demoText: {
+      fontSize: 11,
+      color: colors.text,
+      marginVertical: 2,
+      textAlign: isRTL ? 'right' : 'left',
+      fontFamily: 'monospace',
+    },
   });
 
   return (
@@ -135,6 +157,13 @@ const LoginScreen = ({ navigation }: any) => {
       </View>
       
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        <View style={styles.demoBox}>
+          <Text style={styles.demoTitle}>🎯 حسابات تجريبية للاختبار</Text>
+          <Text style={styles.demoText}>Admin: admin@baytalSudani.com / Admin@123</Text>
+          <Text style={styles.demoText}>Merchant: merchant@baytalSudani.com / Merchant@123</Text>
+          <Text style={styles.demoText}>User: user@baytalSudani.com / User@123</Text>
+        </View>
+
         <TextInput
           style={styles.input}
           placeholder={t('common.email')}

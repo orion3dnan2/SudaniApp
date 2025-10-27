@@ -23,8 +23,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isTestUser, setIsTestUser] = useState(false);
 
   useEffect(() => {
+    // Only set up Firebase auth listener if not using test user
+    if (isTestUser) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
       if (firebaseUser) {
         setUser({
@@ -41,7 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
 
     return unsubscribe;
-  }, []);
+  }, [isTestUser]);
 
   const signUp = async (email: string, password: string, name: string) => {
     await createUserWithEmailAndPassword(auth, email, password);
@@ -51,6 +58,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Check if it's a test user first (for demo mode)
     const testUser = validateTestUser(email, password);
     if (testUser) {
+      setIsTestUser(true);
       setUser({
         id: testUser.id,
         email: testUser.email,
@@ -63,10 +71,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     
     // Otherwise, use Firebase authentication
-    await signInWithEmailAndPassword(auth, email, password);
+    setIsTestUser(false);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (error: any) {
+      // If Firebase fails, throw a more descriptive error
+      throw new Error(error.message || 'Login failed. Please check your credentials.');
+    }
   };
 
   const logout = async () => {
+    if (isTestUser) {
+      setIsTestUser(false);
+      setUser(null);
+      return;
+    }
     await signOut(auth);
   };
 
