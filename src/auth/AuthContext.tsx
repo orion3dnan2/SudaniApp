@@ -81,12 +81,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = async () => {
-    if (isTestUser) {
+    try {
+      if (isTestUser) {
+        // Clear test user state
+        setIsTestUser(false);
+        setUser(null);
+        console.log('Test user logged out successfully');
+        return;
+      }
+      // Sign out from Firebase
+      await signOut(auth);
+      console.log('Firebase user logged out successfully');
+    } catch (error) {
+      console.error('Logout error:', error);
+      // Even if there's an error, clear the user state
       setIsTestUser(false);
       setUser(null);
-      return;
     }
-    await signOut(auth);
   };
 
   return (
