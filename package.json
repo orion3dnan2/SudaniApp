@@ -1,7 +1,7 @@
 {
   "name": "bayt-al-sudani",
   "version": "1.0.0",
-  "main": "expo-router",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start --port 19006 --web",
     "android": "expo start --android",

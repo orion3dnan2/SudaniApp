@@ -1,8 +1,8 @@
 entrypoint = "main.dart"
-modules = ["dart-3.3", "nodejs-20"]
+modules = ["nodejs-20"]
 
 [nix]
-channel="stable-24_05"
+channel = "stable-25_05"
 
 [deployment]
 run = ["dart", "main.dart"]
@@ -38,6 +38,10 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
+
+[[ports]]
+localPort = 33687
+externalPort = 3000
 
 [[ports]]
 localPort = 46003
