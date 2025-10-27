@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import { User } from '../types';
+import { validateTestUser, testUsers } from '../data/testUsers';
 
 interface AuthContextType {
   user: User | null;
@@ -47,6 +48,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const signIn = async (email: string, password: string) => {
+    // Check if it's a test user first (for demo mode)
+    const testUser = validateTestUser(email, password);
+    if (testUser) {
+      setUser({
+        id: testUser.id,
+        email: testUser.email,
+        name: testUser.name,
+        phone: testUser.phone,
+        role: testUser.role,
+      });
+      setLoading(false);
+      return;
+    }
+    
+    // Otherwise, use Firebase authentication
     await signInWithEmailAndPassword(auth, email, password);
   };
 
