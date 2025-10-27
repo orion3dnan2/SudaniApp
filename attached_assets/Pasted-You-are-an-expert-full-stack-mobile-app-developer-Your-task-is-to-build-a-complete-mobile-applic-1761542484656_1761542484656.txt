@@ -1,0 +1,56 @@
+You are an expert full-stack mobile app developer.
+Your task is to build a complete **mobile application called "Bayt Al Sudani" (البيت السوداني)** — a marketplace and community platform that connects Sudanese users in Kuwait and GCC countries.
+
+🔧 Choose one of the two stacks below based on developer readiness:
+1. **Dart + Flutter 3.24** for a fully native cross-platform app (Android/iOS).
+2. **React Native + Expo SDK 52** for a JS-based multi-platform app.
+
+### 🧩 App Overview:
+The app should allow:
+- 🛍️ Users to browse, search, and buy from multiple **stores & restaurants**.
+- 💼 Users to **find jobs, services, or classifieds**.
+- 🧑‍💼 Merchants to **create and manage stores**, upload products with price, description, and images.
+- 📦 Admin panel (in future phase) for analytics, moderation, and payments.
+- 💬 Integration with **WhatsApp API** for chat/order confirmation.
+
+### 🌍 Core Requirements:
+- **Multi-language:** Arabic (default) + English switcher.
+- **Modern UI:** Minimalistic, elegant, with warm Sudanese color palette (brown, gold, white, green accents).
+- **Responsive layout:** Works perfectly on all screen sizes (mobile, tablet).
+- **Firebase backend** (or Supabase if preferred) for:
+  - Auth (email, phone, Google)
+  - Database (Firestore / Supabase DB)
+  - Storage (images, products, logos)
+- **Clean architecture:** MVVM (if Flutter) or Redux Toolkit (if React Native).
+- **Folder structure** organized by modules: `auth`, `stores`, `jobs`, `profile`, `chat`, `admin`.
+
+### ⚙️ Key Features:
+1. **Authentication flow** (Sign up / Sign in / Forgot password)
+2. **Main home screen** with sections:
+   - “Top Stores”
+   - “Nearby Restaurants”
+   - “Jobs for Sudanese”
+   - “Trending Services”
+3. **Store Details Page** (banner, products, contact, WhatsApp button)
+4. **Product Page** (image carousel, price, add to favorites)
+5. **Profile Page** (user info, settings, language switch)
+6. **Add Store / Post Job / Post Ad** forms for merchants.
+7. **Favorites & Recent Views**.
+8. **Dark Mode support.**
+9. **Google Maps API** integration for location & directions.
+10. **Notifications** for order updates or new jobs.
+
+### 💬 Design Expectations:
+Use modern clean UI similar to Instagram + Talabat + Facebook Marketplace hybrid.
+Ensure beautiful Arabic typography using Google Fonts (e.g., Cairo, Tajawal).
+Use responsive grids, soft shadows, rounded corners, and animation transitions.
+
+### 🔒 Security & Deployment:
+- Use `.env` file for Firebase credentials and API keys.
+- Prepare for Android & iOS builds.
+- Add README.md explaining project structure, dependencies, and how to deploy.
+
+Output:
+- A full working starter app with modular screens, Firebase connection, and navigation ready.
+- Clean, production-ready code that can be extended by other developers.
+
